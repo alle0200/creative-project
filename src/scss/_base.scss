@@ -1,9 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:wght@400;500;600;700&display=swap');
 
 body{
 	background-color: $bgcolor;
 	font-family: 'Lato', sans-serif;
+	// color: #2f3644;
+
+	//background pattern from https://projects.verou.me/css3patterns/#waves
+	// background:
+	// radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent),
+	// radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent) 0 -50px;
+	// background-color: slategray;
+	// background-size:75px 100px;
+
+	// background: rgb(210,230,230);
+	// background: linear-gradient(90deg, rgba(210,230,230,1) 0%, rgba(158,184,184,1) 34%, rgba(148,170,170,1) 100%);
 }
+
+//background and keyframes from https://codepen.io/BjornRombaut/pen/mOLGgX
+//background gradient generated from https://cssgradient.io/
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 0.6;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: rgb(123,166,166);
+	background: linear-gradient(0deg, rgba(123,166,166,1) 0%, rgba(158,184,184,1) 100%, rgba(187,212,212,1) 100%);
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #88a6a6;
+    color: transparent;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 16s ease-in forwards infinite;
+}
+undefined
+.background li:nth-child(0) {
+    animation-delay: 0s;
+    left: 62vw;
+    top: 59vh;
+}
+
+.background li:nth-child(1) {
+    animation-delay: 2s;
+    left: 31vw;
+    top: 1vh;
+}
+
+.background li:nth-child(2) {
+    animation-delay: 4s;
+    left: 93vw;
+    top: 25vh;
+}
+
+.background li:nth-child(3) {
+    animation-delay: 6s;
+    left: 7vw;
+    top: 44vh;
+}
+
+.background li:nth-child(4) {
+    animation-delay: 8s;
+    left: 87vw;
+    top: 84vh;
+    border-color: #a7cbcb;
+}
+
+.background li:nth-child(5) {
+    animation-delay: 10s;
+    left: 75vw;
+    top: 34vh;
+}
+
+.background li:nth-child(6) {
+    animation-delay: 12s;
+    left: 28vw;
+    top: 70vh;
+    border-color: #a7cbcb;
+}
+
+.background li:nth-child(7) {
+    animation-delay: 14s;
+    left: 54vw;
+    top: 61vh;
+    border-color: #a7cbcb;
+}
+
+.background li:nth-child(8) {
+    animation-delay: 16s;
+    left: 12vw;
+    top: 18vh;
+}
+
+.background li:nth-child(9) {
+    animation-delay: 18s;
+    left: 40vw;
+    top: 98vh;
+}
+
 
 img
 {
@@ -71,8 +184,13 @@ img
 
 	box-sizing: border-box;
 
-	background-color: $bgcolor;
+	background-color: rgba(0,0,0,0);
 	border-radius: $radius;
+
+	text-align: center;
+
+	font-size: 2em;
+	font-weight: 600;
 }
 
 .quarterwidth
@@ -123,16 +241,25 @@ img
 	// background-color: black;
 
 	font-size: 3em;
+	// white-space: initial;
+	// flex: 1 100%;
 }
 
 #colorHolder {
+	// width: 100%;
 	text-align: center;
-	// height: 300px;
+	height: 450px;
+
+	display: flex;
+	margin: auto;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
 }
 
 #wordInput {
 	width: 80%;
-	margin: 0 auto;
+	margin: 2% auto;
 	padding: 1%;
 
 }
@@ -146,10 +273,45 @@ img
 	border: 0;
 
 	font-size: 1.65em;
+
+	transform: scale(1);
+	transition: transform 0.8s;
+}
+
+#submitButton:hover {
+	transform: scale(1.25);
+
+	background-color: #2f3644;
+	color: white;
+}
+
+h1
+{
+	font-family: 'Lora', serif;
+	width: 100%;
+	text-align: center;
+
+	padding: 0.5%;
+	// font-size: 3em;
+	// font-weight: 800;
 }
 
 h2
 {
+	font-family: 'Lora', serif;
 	width: 100%;
 	text-align: center;
+}
+
+// p {
+// 	width: 100%;
+// 	margin: 0 auto;
+// }
+
+.miniColor {
+	display: flex;
+	margin: 1% auto;
+	width: calc(33.333333333333333333333333333333333333333333333333% - $flexboxmargin - $flexboxpadding);;
+	align-items: center;
+	justify-content: center;
 }

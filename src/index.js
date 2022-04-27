@@ -36,7 +36,19 @@ const colorArray = ["",
 					"",
 					"",
 					""];
+
+const wordArray = ["",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""];
+
 var prevColorString;
+var prevWordString;
 
 const button = document.getElementById("submitButton");
 button.addEventListener("click", getInputValue, false);
@@ -48,6 +60,18 @@ function getInputValue()
 {
 	let wordValue = document.getElementById("wordInput").value;
 	colorBox.textContent = wordValue;
+
+	wordArray[8] = wordArray[7];
+	wordArray[7] = wordArray[6];
+	wordArray[6] = wordArray[5];
+
+	wordArray[5] = wordArray[4];
+	wordArray[4] = wordArray[3];
+	wordArray[3] = wordArray[2];
+
+	wordArray[2] = wordArray[1];
+	wordArray[1] = wordArray[0];
+	wordArray[0] = wordValue;
 
 	console.log(wordValue);
 	generateWordNumber(wordValue);
@@ -167,17 +191,33 @@ function previousColors(wordColor)
 	for (let i = 0; i < 9; i++)
 	{
 		prevColorString = "color" + (i + 1);
+		prevWordString = "word" + (i + 1) + "p";
 		// console.log(prevColorString);
 
 		if (colorArray[i] == "")
 		{
 			// document.getElementById(prevColorString).style.background = wordColor;
-			document.getElementById(prevColorString).style.background = "#dce6f9";
+			document.getElementById(prevColorString).style.background = "rgba(0,0,0,0)";
 		}
 
 		else
 		{
 			document.getElementById(prevColorString).style.background = colorArray[i];
+
+			prevColorString = prevColorString + "p";
+
+			// document.getElementById(prevWordString).textContent = wordArray[i];
+			document.getElementById(prevColorString).textContent = wordArray[i] + ": " + colord(colorArray[i]).toHex();
+			
+			if(colord(colorArray[i]).isLight())
+			{
+				document.getElementById(prevColorString).style.color = "#2f3644";
+			}
+
+			if (colord(colorArray[i]).isDark())
+			{
+				document.getElementById(prevColorString).style.color = "white";
+			}
 		}
 	}
 
