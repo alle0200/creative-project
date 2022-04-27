@@ -1,0 +1,16 @@
+# humanstxt.org/
+#The humans responsible & technology colophon
+
+# TEAM
+
+	Name: Allie Lew
+	Contributions: Developed the boilerplate
+
+# THANKS
+
+	creativemarket.com for the free UX/UI Icons
+
+# TECHNOLOGY COLOPHON
+
+	CSS3, HTML5, SCSS, Webpack, Open graph
+	Apache Serve Configs, jQuery, Modernizr, Normalize.css
