@@ -11,7 +11,7 @@ img
 }
 
 .container{
-	width: 100%;
+	width: 52%;
 	margin: 0px auto;
 	padding: 0px;
 	box-sizing: border-box;
@@ -21,6 +21,8 @@ img
 	flex-direction: row;
 	align-content: flex-start;
 	align-items: stetch;
+
+	position: relative;
 }
 
 .fullwidth
@@ -63,12 +65,13 @@ img
 	// padding: 1%;
 
 	width: calc(33.333333333333333333333333333333333333333333333333% - $flexboxmargin - $flexboxpadding);
+	height: 31vh;
 	margin: $flexboxmargin;
 	padding: $flexboxpadding;
 
 	box-sizing: border-box;
 
-	background-color: $flexboxcolor;
+	background-color: $bgcolor;
 	border-radius: $radius;
 }
 
@@ -112,12 +115,41 @@ img
 	margin-right: auto;
 }
 
-.colorbox
+#colorBox
 {
-	height: 250px;
-	width: 250px;
+	// height: 250px;
+	// width: 250px;
 
 	// background-color: black;
 
-	// font-size: 2em;
+	font-size: 3em;
+}
+
+#colorHolder {
+	text-align: center;
+	// height: 300px;
+}
+
+#wordInput {
+	width: 80%;
+	margin: 0 auto;
+	padding: 1%;
+
+}
+
+#submitButton {
+	width: 25%;
+	margin: 10px auto;
+	padding: 1%;
+
+	border-radius: 5px;
+	border: 0;
+
+	font-size: 1.65em;
+}
+
+h2
+{
+	width: 100%;
+	text-align: center;
 }
