@@ -4,26 +4,31 @@ colord("#ff0000").grayscale().alpha(0.25).toRgbString(); // "rgba(128, 128, 128,
 colord("rgb(192, 192, 192)").isLight(); // true
 colord("hsl(0, 50%, 50%)").darken(0.25).toHex(); // "#602020"
 
+//the value of the word that is submitted
 var wordValue;
 
+//this is for parsing the string that is passed into the site
 var charArray;
-
-var wordNumber;
 var stringLength;
 var stringThird;
 
-var placeCounter;
-
+//these are the individual color values
 var value1;
 var value2;
 var value3;
 
+//the string where the final color is stored
+var colorString;
+
 const button = document.getElementById("submitButton");
 button.addEventListener("click", getInputValue, false);
+
+var colorBox = document.getElementById("colorBox");
 
 function getInputValue()
 {
 	let wordValue = document.getElementById("wordInput").value;
+	colorBox.textContent = wordValue;
 
 	console.log(wordValue);
 	generateWordNumber(wordValue);
@@ -49,6 +54,12 @@ function generateWordNumber(wordValue)
 		{
 			value1 += charArray[count].charCodeAt(0);
 
+
+			if (count == stringThird)
+			{
+				value1 = value1/stringThird;
+			}
+
 			if (value1 > 255)
 			{
 				value1 = 255;
@@ -59,6 +70,11 @@ function generateWordNumber(wordValue)
 		{
 			value2 += charArray[count].charCodeAt(0);
 
+			if (count == stringThird * 2)
+			{
+				value2 = value2/stringThird;
+			}
+
 			if (value2 > 255)
 			{
 				value2 = 255;
@@ -68,6 +84,11 @@ function generateWordNumber(wordValue)
 		if (count > stringThird * 2)
 		{
 			value3 += charArray[count].charCodeAt(0);
+
+			if (count == stringThird * 3)
+			{
+				value3 = value3/stringThird;
+			}
 
 			if (value3 > 255)
 			{
@@ -80,12 +101,18 @@ function generateWordNumber(wordValue)
 	console.log(value2);
 	console.log(value3);
 
+	generateColor(value1, value2, value3);
+
 	// let wordNumber = wordValue.charCodeAt(0);
 	// console.log(wordNumber);
 
 }
 
-function generateColor(wordNumber)
+function generateColor(value1, value2, value3)
 {
+	let colorString = "rgb(" + value1 + ", " + value2 + ", " + value3 + ")";
+	console.log(colorString);
+
+	colorBox.style.color = colorString;
 
 }
