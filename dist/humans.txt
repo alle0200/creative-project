@@ -4,11 +4,17 @@
 # TEAM
 
 	Name: Allie Lew
-	Contributions: Developed the boilerplate
+	Contributions: Developed the boilerplate, designed the website, created the favicon, wrote the Javascript
 
 # THANKS
 
 	creativemarket.com for the free UX/UI Icons
+
+	To the developers of the colord npm package
+
+	Bjorn Rombaut for the animated background
+
+	https://cssgradient.io/ for the background gradient
 
 # TECHNOLOGY COLOPHON
 
